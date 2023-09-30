@@ -1,0 +1,18 @@
+swarn password: AVNS_boMds5SJ8wQYoQX_4w-
+
+postgresql://swarn:AVNS_boMds5SJ8wQYoQX_4w-@db-postgresql-blr1-new-do-user-11648032-0.b.db.ondigitalocean.com:25060/stocksdb?sslmode=require
+
+username = swarn
+password = AVNS_boMds5SJ8wQYoQX_4w- hide
+host = db-postgresql-blr1-new-do-user-11648032-0.b.db.ondigitalocean.com
+port = 25060
+database = stocksdb
+sslmode = require
+
+psql -h db-postgresql-blr1-new-do-user-11648032-0.b.db.ondigitalocean.com -p 25060 -d stocksdb -U swarn
+
+CREATE TABLE stocks (stockid SERIAL PRIMARY KEY, name TEXT, price INT, company TEXT);
+
+CREATE TABLE tasks (id SERIAL PRIMARY KEY, task TEXT NOT NULL, status BOOLEAN NOT NULL, user_uuid UUID NOT NULL);
+
+CREATE TABLE users (email VARCHAR (255) UNIQUE NOT NULL, user_id UUID PRIMARY KEY);
